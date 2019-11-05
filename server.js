@@ -1,6 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const items = require('./routes/api/items')
+const path = require('path')
 
 const app = express()
 app.use(express.json())
