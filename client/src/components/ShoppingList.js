@@ -26,6 +26,8 @@ function ShoppingList(props) {
                             
                                 <CSSTransition key={item._id} timeout={500} classNames="fade">
                                     <ListGroupItem>
+
+                                    {props.isAuthenticated ? (
                                         <Button
                                         className="remove-btn"
                                         color="danger"
@@ -34,6 +36,8 @@ function ShoppingList(props) {
                                         >
                                         &times;
                                         </Button>
+                                        ) : null}
+
                                         {item.name}
                                     </ListGroupItem>
                                 </CSSTransition>
@@ -48,7 +52,8 @@ function ShoppingList(props) {
 }
 
 const mapStateToProps = (state) => ({
-    item: state.item
+    item: state.item,
+    isAuthenticated: state.auth.isAuthenticated
 })
 
 const mapDispatchToProps = (dispatch) => {
